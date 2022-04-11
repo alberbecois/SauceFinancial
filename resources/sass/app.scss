@@ -1,0 +1,24 @@
+// Variables
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+@font-face {
+    font-family: 'sergio_trendyregular';
+    src: url('../fonts/sergio_trendy-webfont.woff2') format('woff2'),
+         url('../fonts/sergio_trendy-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.navbar-brand {
+    font-family: sergio_trendyregular;
+    font-size: 24pt !important;
+}
+
+.yellow {
+    background-color: $yellow-400;
+}
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
