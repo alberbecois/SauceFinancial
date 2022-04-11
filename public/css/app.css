@@ -11,7 +11,20 @@
 }
 
 .yellow {
-  background-color: #ffcd39;
+  background-color: #ffda6a;
+}
+
+.yellow-text {
+  color: #ffda6a !important;
+}
+
+.btn-outline-dark:hover {
+  color: #ffda6a !important;
+}
+
+.dark-section {
+  background-color: rgb(34, 29, 23);
+  color: white;
 }
 
 /*!

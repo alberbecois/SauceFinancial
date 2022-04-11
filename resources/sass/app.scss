@@ -17,7 +17,20 @@
 }
 
 .yellow {
-    background-color: $yellow-400;
+    background-color: $yellow-300;
+}
+
+.yellow-text {
+    color: $yellow-300 !important;
+}
+
+.btn-outline-dark:hover {
+    color: $yellow-300 !important;
+}
+
+.dark-section {
+    background-color: rgb(34,29,23);
+    color: white;
 }
 
 // Bootstrap
