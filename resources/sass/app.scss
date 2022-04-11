@@ -11,6 +11,9 @@
 
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
+
 .navbar-brand {
     font-family: sergio_trendyregular;
     font-size: 24pt !important;
@@ -31,6 +34,14 @@
 .dark-section {
     background-color: rgb(34,29,23);
     color: white;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif !important;
+}
+
+h1 {
+    font-family: 'Lora', serif;
 }
 
 // Bootstrap
