@@ -73,6 +73,11 @@ h3, .h3 {
     border-bottom-right-radius: 15px;
   }
 }
+#saucelogo {
+  font-family: sergio_trendyregular;
+  font-size: 32pt !important;
+}
+
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

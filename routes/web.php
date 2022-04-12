@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegistrationController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +17,14 @@ use App\Http\Controllers\Auth\RegistrationController;
 |
 */
 
-Route::get('/register', [RegistrationController::class, 'index'])->name('register');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+Route::get('/register', [RegistrationController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegistrationController::class, 'store']);
 
 Route::get('/', function () {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <!--
-      
+
             Web Development Team Project
             Authors: Emma Middleton, Joshua Knutson, Mobin Syed, Johan Elder
             Date: April 11, 2022
@@ -24,20 +24,33 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-2 me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link" aria-current="page" href="{{ route('home') }}">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Transfers</a>
-                        </li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Transfers</a>
+                            </li>
+                        @endauth
                     </ul>
                     <div class="d-flex pe-3 align-items-center">
-                        <span class="d-inline-block me-4">Joshua Knutson</span>
-                        <button class="btn btn-outline-dark me-2 px-4" type="button">Login</button>
-                        <a href="{{ route('register') }}" class="btn btn-dark yellow-text" role="button">Register</a>
-                        <button class="btn btn-dark yellow-text" type="button">Logout</button>
+                        @auth
+                            <span class="d-inline-block me-4">{{ auth()->user()->name }}</span>
+                        @endauth
+
+                        @guest
+                            <a href="{{ route('login') }}" class="btn btn-outline-dark me-2 px-4" role="button">Login</a>
+                            <a href="{{ route('register') }}" class="btn btn-dark yellow-text" role="button">Register</a>
+                        @endguest
+
+                        @auth
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button class="btn btn-dark yellow-text" type="submit">Logout</button>
+                            </form>
+                        @endauth
                     </div>
                 </div>
             </div>

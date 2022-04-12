@@ -16,6 +16,7 @@ class RegistrationController extends Controller
 
     public function store(Request $request)
     {
+        // Validate form input
         $this->validate($request, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
@@ -27,6 +28,7 @@ class RegistrationController extends Controller
             'phonenumber' => 'required|max:255'
         ]);
 
+        // Upon successful validation add new User to the database
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -37,5 +39,11 @@ class RegistrationController extends Controller
             'postalcode' => $request->postalcode,
             'phonenum' => $request->phonenumber,
         ]);
+
+        // Log-in as the new User
+        auth()->attempt($request->only('email', 'password'));
+
+        // Redirect to the Dashboard
+        return redirect()->route('dashboard');
     }
 }

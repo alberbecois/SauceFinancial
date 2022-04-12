@@ -11,7 +11,7 @@
                 <div class="card card-registration card-registration-2" style="border-radius: 15px;">
                     <div class="card-body p-0">
                         <div class="row g-0">
-                            
+
                             <!-- Left side -->
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <!-- End left side -->
-                        
+
                             <!-- Right side -->
                             <div class="col-lg-6 bg-black text-white">
                                 <div class="p-5">
@@ -142,12 +142,13 @@
                                     </div>
 
                                     <button type="submit" class="btn btn-outline-light btn-lg">Register</button>
+                                    <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="{{ route('login') }}" class="fw-bold"><u>Login here</u></a></p>
 
                                 </div>
                             </div>
                             <!-- End right side -->
-                            
-                        </div>    
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,5 +156,5 @@
     </div>
     </form>
 </section>
-    
+
 @endsection
