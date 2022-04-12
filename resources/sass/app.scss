@@ -44,5 +44,42 @@ h1 {
     font-family: 'Lora', serif;
 }
 
+h3 {
+    font-family: 'Lora', serif;
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+.card-registration .select-arrow {
+    top: 13px;
+}
+  
+.bg-black {
+    background-color: rgb(34,29,23);
+}
+
+@media (min-width: 992px) {
+    .card-registration-2 .bg-black {
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+}
+
+@media (max-width: 991px) {
+    .card-registration-2 .bg-black {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+}
+
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";

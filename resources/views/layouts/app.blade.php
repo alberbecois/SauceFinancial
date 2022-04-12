@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-2 me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Dashboard</a>
@@ -36,7 +36,8 @@
                     <div class="d-flex pe-3 align-items-center">
                         <span class="d-inline-block me-4">Joshua Knutson</span>
                         <button class="btn btn-outline-dark me-2 px-4" type="button">Login</button>
-                        <button class="btn btn-dark yellow-text" type="button">Register</button>
+                        <a href="{{ route('register') }}" class="btn btn-dark yellow-text" role="button">Register</a>
+                        <button class="btn btn-dark yellow-text" type="button">Logout</button>
                     </div>
                 </div>
             </div>
