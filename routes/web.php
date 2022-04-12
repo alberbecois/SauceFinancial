@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\RegistrationController;
 */
 
 Route::get('/register', [RegistrationController::class, 'index'])->name('register');
+Route::post('/register', [RegistrationController::class, 'store']);
 
 Route::get('/', function () {
     return view('home');
