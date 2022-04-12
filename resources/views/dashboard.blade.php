@@ -12,8 +12,37 @@
     <div class="tab-content ms-5 w-100" id="v-pills-tabContent">
         <!-- Overview -->
         <div class="tab-pane fade show active" id="v-pills-overview" role="tabpanel" aria-labelledby="v-pills-overview-tab">
-            <h3>Account Overview</h3>
-
+            <h3>Account Overview</h3> <br>
+            <h4>Current Account Balance:  ${{ $balance }}</h4> <br>
+            <h5>Most Recent Transactions:</h5>
+            <div class="card mt-3">
+                <div class="card-body">
+                    @if ($transactions->count())
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Type</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($recent as $myrecent)
+                                <tr>
+                                    <td>{{ $myrecent->type }}</td>
+                                    <td>{{ $myrecent->amount }}</td>
+                                    <td>{{ $myrecent->description }}</td>
+                                    <td>{{ $myrecent->created_at }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @else
+                        <p>You don't currently have any transactions to show.</p>
+                    @endif
+                </div>
+            </div>
         </div>
 
         <!-- Profile -->
