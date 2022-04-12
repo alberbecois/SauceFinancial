@@ -24,14 +24,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-2 me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link @if (Request::is('/')) {{ 'active' }} @endif" aria-current="page" href="{{ route('home') }}">Home</a>
                         </li>
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Transfers</a>
+                                <a class="nav-link @if (Request::is('dashboard')) {{ 'active' }} @endif" href="{{ route('dashboard') }}">Dashboard</a>
                             </li>
                         @endauth
                     </ul>

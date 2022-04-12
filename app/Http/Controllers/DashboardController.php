@@ -8,6 +8,10 @@ class DashboardController extends Controller
 {
     function index()
     {
-        return view('dashboard');
+        $transactions = auth()->user()->transactions;
+
+        return view('dashboard', [
+            'transactions' => $transactions
+        ]);
     }
 }
