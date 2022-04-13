@@ -4,7 +4,7 @@
     <section class="my-4">
         <div class="row mb-3 gradient-overlay">
             <img class="img-fluid" src="{{ URL('images/lightbulb.jpg') }}" alt="A picture of a lightbulb">
-            <h1>Let's get this gravy!</h1>
+            <h1>Come get this gravy</h1>
         </div>
         <div class="row align-items-center">
             <div class="col-md-6">
