@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show my-5" role="alert">
+        <strong>Thanks for the update!</strong> {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 <div class="d-flex align-items-start py-5">
     <div class="nav flex-column nav-pills me-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <img class="mb-4" src="{{ URL('images/user.png') }}" alt="a default image of a user profile pic" style="width: 200px; height: 200px;">
@@ -72,39 +78,41 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="">
+                            <form action="{{ route('update') }}" method="POST">
+                                @csrf
+                                @method('PUT')
                                 <div class="mb-3">
                                     <label for="newaddress" class="form-label">Street Address</label>
-                                    <input type="text" class="form-control" id="newaddress" value="{{ auth()->user()->address }}">
+                                    <input type="text" class="form-control" name="newaddress" value="{{ auth()->user()->address }}">
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-7">
                                         <label for="newcity" class="form-label">City</label>
-                                        <input type="text" class="form-control" id="newcity" value="{{ auth()->user()->city }}">
+                                        <input type="text" class="form-control" name="newcity" value="{{ auth()->user()->city }}">
                                     </div>
                                     <div class="col-md-5">
                                         <label for="newprovince" class="form-label">Province</label>
-                                        <input type="text" class="form-control" id="newprovince" value="{{ auth()->user()->province }}">
+                                        <input type="text" class="form-control" name="newprovince" value="{{ auth()->user()->province }}">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-5">
                                         <label for="newpostalcode" class="form-label">Postal Code</label>
-                                        <input type="text" class="form-control" id="newpostalcode" value="{{ auth()->user()->postalcode }}">
+                                        <input type="text" class="form-control" name="newpostalcode" value="{{ auth()->user()->postalcode }}">
                                     </div>
                                     <div class="col-md-7">
                                         <label for="newphonenum" class="form-label">Phone Number</label>
-                                        <input type="text" class="form-control" id="newphonenum" value="{{ auth()->user()->phonenum }}">
+                                        <input type="text" class="form-control" name="newphonenum" value="{{ auth()->user()->phonenum }}">
                                     </div>
                                 </div>
                                 <div class="my-3">
-                                    <label for="newcity" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="newcity" value="{{ auth()->user()->email }}">
+                                    <label for="newemail" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" name="newemail" value="{{ auth()->user()->email }}">
                                 </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-dark">Update</button>
+                            <button type="submit" class="btn btn-dark">Update</button>
                             </form>
                         </div>
                     </div>

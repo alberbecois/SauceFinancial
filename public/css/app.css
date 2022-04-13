@@ -90,9 +90,10 @@ h3, .h3 {
 .gradient-overlay {
   position: relative;
 }
-.gradient-overlay::after {
+.gradient-overlay:after {
   content: "";
   position: absolute;
+  display: inline-block;
   top: 0;
   left: 0;
   width: 100%;

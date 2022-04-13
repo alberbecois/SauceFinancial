@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::get('/register', [RegistrationController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegistrationController::class, 'store']);
+
+Route::put('/user', [UserController::class, 'update'])->name('update');
 
 Route::get('/', function () {
     return view('home');
