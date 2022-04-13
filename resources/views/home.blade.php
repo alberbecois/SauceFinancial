@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="my-4">
-        <div class="row mb-3 gradient-overlay">
+        <div class="row mb-4 gradient-overlay">
             <img class="img-fluid" src="{{ URL('images/lightbulb.jpg') }}" alt="A picture of a lightbulb">
             <h1>Come get this gravy</h1>
         </div>
