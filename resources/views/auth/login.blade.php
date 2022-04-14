@@ -29,6 +29,11 @@
                                     {{ session('status') }}
                                 </div>
                             @endif
+                            @if (session('securityprompt'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ session('securityprompt') }}
+                                </div>
+                            @endif
 
                             <div class="form-outline mb-4">
                             <input type="email" id="email" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror" value="{{ old('email') }}" />

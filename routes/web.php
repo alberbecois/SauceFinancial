@@ -24,7 +24,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 // Login/Logout
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::middleware(['throttle:login'])->group(function(){
+    Route::post('/login', [LoginController::class, 'authenticate']);
+});
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 // Registration

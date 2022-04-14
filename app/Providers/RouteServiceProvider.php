@@ -45,8 +45,15 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function configureRateLimiting()
     {
+        RateLimiter::for('login', function(Request $request){
+            return Limit::perMinutes(10,3)->by($request->email)->response(function(){
+                return back()->with("securityprompt", "Too many login attempts. For security purposes your account has been locked for 10 minutes."); //response('Too many login attempts. For security purposes your account has been locked for 10 minutes.');
+            });
+        });
+
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
     }
+
 }
