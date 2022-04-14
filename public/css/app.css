@@ -20,6 +20,10 @@
   color: #ffda6a !important;
 }
 
+.btn-warning {
+  background-color: #ffda6a !important;
+}
+
 .btn-outline-dark:hover {
   color: #ffda6a !important;
 }

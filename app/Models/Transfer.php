@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Transaction extends Model
+class Transfer extends Model
 {
     use HasFactory;
 
@@ -15,10 +15,12 @@ class Transaction extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
-        'type',
-        'amount',
-        'description'
+        'user_id_from',
+        'user_id_to',
+        'transaction_id_withdrawal',
+        'transaction_id_deposit',
+        'status',
+        'amount'
     ];
 
 }
