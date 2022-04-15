@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\QueryException;
 
 class RegistrationController extends Controller
 {
@@ -29,16 +30,24 @@ class RegistrationController extends Controller
         ]);
 
         // Upon successful validation add new User to the database
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'address' => $request->address,
-            'city' => $request->city,
-            'province' => $request->province,
-            'postalcode' => $request->postalcode,
-            'phonenum' => $request->phonenumber,
-        ]);
+
+        try {
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'address' => $request->address,
+                'city' => $request->city,
+                'province' => $request->province,
+                'postalcode' => $request->postalcode,
+                'phonenum' => $request->phonenumber,
+            ]);
+        } catch (QueryException $e){
+            $errorCode = $e->errorInfo[1];
+            if($errorCode == 1062){
+                return back()->with("duplicateentry", "This email is already registered to a user.");
+            }
+        }
 
         // Log-in as the new User
         auth()->attempt($request->only('email', 'password'));

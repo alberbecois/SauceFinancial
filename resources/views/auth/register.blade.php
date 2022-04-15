@@ -2,6 +2,12 @@
 
 @section('content')
 
+@if (session('duplicateentry'))
+    <div class="alert alert-danger alert-dismissible fade show my-5" role="alert">
+        <strong>Uh-oh! </strong> {{ session('duplicateentry') }} <a href="{{ route('login') }}">Login instead?</a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 <section class="h-100 h-custom">
     <form action="{{ route('register') }}" method="post">
         @csrf
